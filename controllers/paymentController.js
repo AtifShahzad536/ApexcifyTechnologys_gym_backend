@@ -51,8 +51,8 @@ const createCheckoutSession = asyncHandler(async (req, res) => {
       },
     ],
     mode: 'subscription',
-    success_url: `http://localhost:5175/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `http://localhost:5175/subscription`,
+    success_url: `${process.env.FRONTEND_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${process.env.FRONTEND_URL}/subscription`,
     customer_email: req.user.email,
     metadata: {
       userId: req.user._id.toString(),
